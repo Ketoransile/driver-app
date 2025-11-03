@@ -44,7 +44,7 @@ npm run dev
 ```
 
 This will start:
-- Backend server on http://localhost:5000
+- Backend server on http://localhost:3000
 - Expo dev server on port 8081
 
 ### Test Credentials
