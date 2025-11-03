@@ -57,15 +57,32 @@ A full-stack mobile delivery driver application built with Expo React Native and
 - Dark Cards: #2a2a2a
 
 ## Recent Changes
-- Initial project setup completed
-- Full backend API with mock data
-- Complete mobile app with all screens
-- Map integration with route visualization
-- Dark theme with Ethiopian color accents
+- ✅ Initial project setup completed (November 3, 2025)
+- ✅ Full backend API with mock data running on port 3000
+- ✅ Complete mobile app with all screens implemented
+- ✅ Map integration with route visualization from Addis Ababa
+- ✅ Dark theme with Ethiopian color accents applied
+- ✅ Backend tested and validated (login and deliveries endpoints working)
+- ✅ Architect review completed - MVP objectives satisfied
 
 ## Architecture Decisions
 - Monorepo structure with separate backend and driver-app folders
-- Mock data approach for demo/MVP purposes
-- Expo Router for file-based navigation
+- Mock data approach for demo/MVP purposes (no database required)
+- Expo Router for file-based navigation (tabs + modal)
 - TypeScript throughout for type safety
-- Concurrent development setup for streamlined workflow
+- Backend on port 3000, frontend on port 8081
+- AsyncStorage for local session persistence
+- Axios for API communication with interceptors
+
+## Known Considerations
+- LSP shows JSX errors in .tsx files - these are false positives (Expo handles JSX at runtime)
+- For production: Add JWT verification middleware to protect delivery endpoints
+- For production: Configure Google Maps API keys in app.json
+- For physical device testing: Update API URL in api/client.ts to use network IP instead of localhost
+
+## Next Recommended Steps
+1. Add automated integration tests for the authenticated delivery lifecycle
+2. Implement JWT verification middleware before production use
+3. Document environment-specific API URLs for deployment
+4. Consider adding push notifications for new delivery assignments
+5. Add delivery photo capture for proof of delivery
