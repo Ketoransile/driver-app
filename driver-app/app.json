@@ -1,0 +1,43 @@
+{
+  "expo": {
+    "name": "Merkato Driver",
+    "slug": "merkato-driver",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "scheme": "merkato-driver",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#1a1a1a"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.merkato.driver",
+      "config": {
+        "googleMapsApiKey": "YOUR_IOS_GOOGLE_MAPS_API_KEY"
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#1a1a1a"
+      },
+      "package": "com.merkato.driver",
+      "config": {
+        "googleMaps": {
+          "apiKey": "YOUR_ANDROID_GOOGLE_MAPS_API_KEY"
+        }
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router"
+    ]
+  }
+}
