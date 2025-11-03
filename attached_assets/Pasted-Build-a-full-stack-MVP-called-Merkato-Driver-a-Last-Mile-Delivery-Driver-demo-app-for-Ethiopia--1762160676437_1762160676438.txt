@@ -1,0 +1,211 @@
+Build a full-stack MVP called “Merkato Driver” — a Last-Mile Delivery Driver demo app for Ethiopia.
+The system has:
+
+Expo React Native (TypeScript) for the mobile app
+
+Express.js (TypeScript) for the mock backend
+
+No database (use constant data only)
+
+Simulated authentication
+
+Integrated maps showing delivery routes from Addis Ababa to various Ethiopian cities (Nekemte, Shashemene, Jimma, Hawassa, etc.)
+
+Fancy modern dark-themed UI
+
+⚙️ Tech Stack
+
+Frontend: Expo + React Native (TypeScript)
+
+Backend: Express.js (TypeScript)
+
+Data: Constant arrays (no DB)
+
+Styling: NativeWind (Tailwind for RN) or React Native Paper
+
+Maps: react-native-maps (Expo compatible)
+
+Icons: @expo/vector-icons
+
+Navigation: Expo Router with tab navigation
+
+📁 Project Structure
+merkato-driver/
+├── backend/
+│   ├── src/
+│   │   ├── server.ts
+│   │   ├── routes/
+│   │   │   ├── auth.ts
+│   │   │   ├── deliveries.ts
+│   │   ├── data/
+│   │   │   ├── drivers.ts
+│   │   │   ├── deliveries.ts
+│   ├── tsconfig.json
+│   ├── package.json
+├── driver-app/
+│   ├── app/
+│   │   ├── (tabs)/
+│   │   │   ├── dashboard.tsx
+│   │   │   ├── deliveries.tsx
+│   │   │   ├── profile.tsx
+│   │   ├── delivery-detail.tsx
+│   │   ├── login.tsx
+│   ├── api/
+│   │   ├── client.ts
+│   ├── types/
+│   │   ├── index.ts
+│   ├── utils/
+│   │   ├── storage.ts
+│   ├── package.json
+│   ├── tsconfig.json
+├── README.md
+├── package.json
+
+🧩 Backend Requirements
+
+1️⃣ Data (Mock Constants)
+
+// backend/src/data/drivers.ts
+export const drivers = [
+  { id: "1", username: "abebe", password: "1234", name: "Abebe Bekele", phone: "+251912345678" },
+  { id: "2", username: "mekdes", password: "5678", name: "Mekdes Alemu", phone: "+251922334455" },
+];
+
+// backend/src/data/deliveries.ts
+export const deliveries = [
+  {
+    id: "DEL-001",
+    driverId: "1",
+    recipient: "Sisay Tadesse",
+    city: "Nekemte",
+    address: "Gimbi Road, Nekemte",
+    phone: "+251911223344",
+    status: "Pending",
+    distanceKm: 320,
+    coords: { latitude: 9.0912, longitude: 36.5375 },
+  },
+  {
+    id: "DEL-002",
+    driverId: "1",
+    recipient: "Mulu Gebremedhin",
+    city: "Shashemene",
+    address: "Abosto area, Shashemene",
+    phone: "+251910112233",
+    status: "In Transit",
+    distanceKm: 250,
+    coords: { latitude: 7.2, longitude: 38.6 },
+  },
+  {
+    id: "DEL-003",
+    driverId: "2",
+    recipient: "Tigist Degu",
+    city: "Jimma",
+    address: "Aba Jifar Street, Jimma",
+    phone: "+251911889900",
+    status: "Pending",
+    distanceKm: 350,
+    coords: { latitude: 7.6667, longitude: 36.8333 },
+  },
+];
+
+
+2️⃣ Endpoints
+
+POST /api/auth/login → check username/password → return mock JWT + driver info
+
+GET /api/deliveries/:driverId → return driver’s deliveries
+
+PATCH /api/deliveries/:id/status → update delivery status in memory
+
+📱 Frontend Requirements
+
+1️⃣ Login Screen
+
+Username + Password inputs
+
+Calls /api/auth/login
+
+On success → store token in AsyncStorage → navigate to Dashboard
+
+Invalid → show Alert
+
+2️⃣ Dashboard Screen
+
+Show driver name + status toggle
+
+Display small stats (active deliveries, completed, cities)
+
+Map centered on Addis Ababa (lat: 9.03, lng: 38.74)
+
+Marker for driver location (mocked)
+
+Button → “Go to Deliveries”
+
+3️⃣ Deliveries Screen
+
+Fetch /api/deliveries/:driverId
+
+List deliveries as modern cards with Ethiopian style colors
+
+Tap → go to Delivery Detail
+
+4️⃣ Delivery Detail Screen
+
+Shows recipient info, city, address, phone, and map route
+
+Map displays route from Addis Ababa → destination city using markers + polyline
+
+Buttons:
+
+“Start Delivery” (sets status to In Transit)
+
+“Mark as Delivered”
+
+“Call Recipient” (via Linking.openURL('tel:...'))
+
+5️⃣ Profile Screen
+
+Driver details + rating stars + total deliveries
+
+Logout button (clears AsyncStorage + navigates to login)
+
+🎨 UI / UX Requirements
+
+Dark theme with gradients and Ethiopian color accents (green, yellow, red in subtle tone)
+
+Modern logistics look — smooth cards, shadows, rounded corners
+
+Use NativeWind for Tailwind-style responsive layout
+
+Include animations on button presses and navigation
+
+Bottom Tab Navigation: Dashboard | Deliveries | Profile
+
+Splash screen with logo “Merkato Driver”
+
+🚀 Commands
+
+Use concurrently to run both servers:
+
+Frontend: Expo Dev on port 8081
+
+Backend: Express server on port 5000
+
+npm run dev → runs both
+
+✅ Expected Behavior
+
+Login as abebe / 1234
+
+Dashboard shows driver map and stats
+
+Deliveries show shipments to Nekemte, Shashemene, etc.
+
+Each delivery shows on map and can be updated
+
+Everything is mock-based but feels like a real production logistics app
+
+Start by generating both folders (backend and driver-app) with the code scaffolds and mock data.
+Write all files in TypeScript, include README.md, and ensure everything runs correctly with one command:
+
+npm run dev
