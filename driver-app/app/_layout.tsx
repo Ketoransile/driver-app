@@ -1,5 +1,7 @@
-import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
+import { Stack } from "expo-router";
+import { StatusBar } from "expo-status-bar";
+// @ts-ignore: Cannot find module or type declarations for side-effect import of './global.css'.
+import "../global.css";
 
 export default function RootLayout() {
   return (
@@ -8,38 +10,38 @@ export default function RootLayout() {
       <Stack
         screenOptions={{
           headerStyle: {
-            backgroundColor: '#1a1a1a',
+            backgroundColor: "#1a1a1a",
           },
-          headerTintColor: '#fff',
+          headerTintColor: "#fff",
           headerTitleStyle: {
-            fontWeight: 'bold',
+            fontWeight: "bold",
           },
         }}
       >
-        <Stack.Screen 
-          name="index" 
-          options={{ 
-            headerShown: false 
-          }} 
+        <Stack.Screen
+          name="index"
+          options={{
+            headerShown: false,
+          }}
         />
-        <Stack.Screen 
-          name="login" 
-          options={{ 
-            headerShown: false 
-          }} 
+        <Stack.Screen
+          name="login"
+          options={{
+            headerShown: false,
+          }}
         />
-        <Stack.Screen 
-          name="(tabs)" 
-          options={{ 
-            headerShown: false 
-          }} 
+        <Stack.Screen
+          name="(tabs)"
+          options={{
+            headerShown: false,
+          }}
         />
-        <Stack.Screen 
-          name="delivery-detail" 
-          options={{ 
-            title: 'Delivery Details',
-            presentation: 'modal'
-          }} 
+        <Stack.Screen
+          name="delivery-detail"
+          options={{
+            title: "Delivery Details",
+            presentation: "modal",
+          }}
         />
       </Stack>
     </>

@@ -8,10 +8,16 @@
     "frontend": "cd driver-app && npm start",
     "install:all": "npm install && cd backend && npm install && cd ../driver-app && npm install"
   },
-  "keywords": ["delivery", "logistics", "ethiopia", "react-native", "expo"],
+  "keywords": [
+    "delivery",
+    "logistics",
+    "ethiopia",
+    "react-native",
+    "expo"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^8.2.2"
+    "concurrently": "^9.2.1"
   }
 }
