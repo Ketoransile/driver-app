@@ -1,7 +1,8 @@
-import { useEffect } from 'react';
-import { useRouter } from 'expo-router';
-import { View, ActivityIndicator, StyleSheet } from 'react-native';
-import { storage } from '../utils/storage';
+import { useEffect } from "react";
+import { useRouter } from "expo-router";
+import { View, ActivityIndicator, StyleSheet } from "react-native";
+import { storage } from "../utils/storage";
+import "../global.css";
 
 export default function Index() {
   const router = useRouter();
@@ -14,12 +15,12 @@ export default function Index() {
     try {
       const token = await storage.getToken();
       if (token) {
-        router.replace('/(tabs)/dashboard');
+        router.replace("/(tabs)/dashboard");
       } else {
-        router.replace('/login');
+        router.replace("/login");
       }
     } catch (error) {
-      router.replace('/login');
+      router.replace("/login");
     }
   };
 
@@ -33,8 +34,8 @@ export default function Index() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#1a1a1a'
-  }
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#1a1a1a",
+  },
 });

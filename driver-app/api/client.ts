@@ -1,14 +1,15 @@
-import axios from 'axios';
-import { storage } from '../utils/storage';
-import { LoginResponse, DeliveriesResponse, Delivery } from '../types';
+import axios from "axios";
+import { storage } from "../utils/storage";
+import { LoginResponse, DeliveriesResponse, Delivery } from "../types";
 
-const API_URL = 'http://localhost:3000/api';
+// const API_URL = 'http://localhost:3000/api';
+const API_URL = "http://192.168.1.7:3000/api";
 
 const api = axios.create({
   baseURL: API_URL,
   headers: {
-    'Content-Type': 'application/json'
-  }
+    "Content-Type": "application/json",
+  },
 });
 
 api.interceptors.request.use(async (config) => {
@@ -21,9 +22,10 @@ api.interceptors.request.use(async (config) => {
 
 export const authAPI = {
   login: async (username: string, password: string): Promise<LoginResponse> => {
-    const response = await api.post('/auth/login', { username, password });
+    const response = await api.post("/auth/login", { username, password });
+    // console.log("reponse from login is ", response);
     return response.data;
-  }
+  },
 };
 
 export const deliveriesAPI = {
@@ -32,8 +34,11 @@ export const deliveriesAPI = {
     return response.data;
   },
 
-  updateStatus: async (id: string, status: Delivery['status']): Promise<Delivery> => {
+  updateStatus: async (
+    id: string,
+    status: Delivery["status"]
+  ): Promise<Delivery> => {
     const response = await api.patch(`/deliveries/${id}/status`, { status });
     return response.data.delivery;
-  }
+  },
 };

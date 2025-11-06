@@ -1,34 +1,35 @@
-import { Tabs } from 'expo-router';
-import { Ionicons } from '@expo/vector-icons';
+import { Tabs } from "expo-router";
+import { Ionicons } from "@expo/vector-icons";
 
 export default function TabsLayout() {
   return (
     <Tabs
       screenOptions={{
         headerStyle: {
-          backgroundColor: '#1a1a1a',
+          backgroundColor: "#1a1a1a",
         },
-        headerTintColor: '#fff',
+        headerTintColor: "#fff",
         tabBarStyle: {
-          backgroundColor: '#1a1a1a',
-          borderTopColor: '#3a3a3a',
+          backgroundColor: "#1a1a1a",
+          borderTopColor: "#3a3a3a",
           borderTopWidth: 1,
           height: 60,
           paddingBottom: 8,
-          paddingTop: 8
+          marginBottom: 0,
+          paddingTop: 8,
         },
-        tabBarActiveTintColor: '#009639',
-        tabBarInactiveTintColor: '#666',
+        tabBarActiveTintColor: "#009639",
+        tabBarInactiveTintColor: "#666",
         tabBarLabelStyle: {
           fontSize: 12,
-          fontWeight: '600'
-        }
+          fontWeight: "600",
+        },
       }}
     >
       <Tabs.Screen
         name="dashboard"
         options={{
-          title: 'Dashboard',
+          title: "Dashboard",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="speedometer" size={size} color={color} />
           ),
@@ -37,7 +38,7 @@ export default function TabsLayout() {
       <Tabs.Screen
         name="deliveries"
         options={{
-          title: 'Deliveries',
+          title: "Deliveries",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="cube" size={size} color={color} />
           ),
@@ -46,7 +47,7 @@ export default function TabsLayout() {
       <Tabs.Screen
         name="profile"
         options={{
-          title: 'Profile',
+          title: "Profile",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="person" size={size} color={color} />
           ),
