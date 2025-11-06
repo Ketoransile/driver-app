@@ -14,6 +14,7 @@ A modern last-mile delivery driver app for Ethiopia, built with Expo React Nativ
 ## Tech Stack
 
 **Frontend:**
+
 - Expo + React Native (TypeScript)
 - Expo Router for navigation
 - react-native-maps for mapping
@@ -21,6 +22,7 @@ A modern last-mile delivery driver app for Ethiopia, built with Expo React Nativ
 - AsyncStorage for local data
 
 **Backend:**
+
 - Express.js (TypeScript)
 - Mock data with constant arrays
 - RESTful API endpoints
@@ -28,28 +30,33 @@ A modern last-mile delivery driver app for Ethiopia, built with Expo React Nativ
 ## Quick Start
 
 ### Prerequisites
+
 - Node.js 18+ installed
 - Expo Go app on your mobile device (optional)
 
 ### Installation
 
 1. Install all dependencies:
+
 ```bash
 npm run install:all
 ```
 
 2. Run both backend and frontend:
+
 ```bash
 npm run dev
 ```
 
 This will start:
+
 - Backend server on http://localhost:3000
 - Expo dev server on port 8081
 
 ### Test Credentials
 
 Login with:
+
 - Username: `abebe` / Password: `1234`
 - Username: `mekdes` / Password: `5678`
 
@@ -82,20 +89,22 @@ merkato-driver/
 ## Delivery Cities
 
 The app includes mock deliveries to:
+
 - Nekemte (320 km from Addis Ababa)
 - Shashemene (250 km)
 - Jimma (350 km)
-- And more Ethiopian cities
 
 ## Development
 
 ### Backend Only
+
 ```bash
 cd backend
 npm run dev
 ```
 
 ### Frontend Only
+
 ```bash
 cd driver-app
 npm start
